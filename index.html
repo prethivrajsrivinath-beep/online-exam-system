@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExamDesk – Online Exam System</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem('ex_theme')||'light'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="landing">
+  <nav class="landing-nav">
+    <a class="brand" href="index.html"><span class="brand-mark" id="mark"></span>ExamDesk</a>
+    <button class="btn-icon" data-theme-toggle aria-label="Toggle theme"></button>
+  </nav>
+  <main class="landing-main">
+    <section>
+      <h1>Sit the exam. See your score the second you submit.</h1>
+      <p class="muted" style="max-width:52ch;font-size:1.05rem">A complete online exam system that runs entirely in your browser: timed multiple-choice papers, automatic marking, and an admin panel for papers, students and results.</p>
+      <div class="feature-list" id="features"></div>
+    </section>
+    <section class="portal">
+      <a class="portal-card" href="student/login.html">
+        <span class="chip" id="ic-student"></span>
+        <div><h3>Student portal</h3><p>Register, take published exams and review your results.</p></div>
+      </a>
+      <a class="portal-card admin" href="admin/login.html">
+        <span class="chip" id="ic-admin"></span>
+        <div><h3>Admin portal</h3><p>Build exam papers, manage students and export results.</p></div>
+      </a>
+      <p class="muted small" style="margin:6px 4px 0">Demo logins — student: <b>STU2024001</b> / <b>student123</b> · admin: <b>admin</b> / <b>admin123</b></p>
+    </section>
+  </main>
+</div>
+<script src="js/storage.js"></script>
+<script src="js/common.js"></script>
+<script>
+  UI.initTheme();
+  document.getElementById('mark').innerHTML = UI.icon('check', 20);
+  document.getElementById('ic-student').innerHTML = UI.icon('user', 26);
+  document.getElementById('ic-admin').innerHTML = UI.icon('shield', 26);
+  document.getElementById('features').innerHTML = ['Timed exams with auto-submit','Shuffled questions & options','Auto-saved answers','Instant pass/fail results','CSV export','Dark & light mode']
+    .map(t => `<span class="pill">${UI.icon('check',14)} ${t}</span>`).join('');
+</script>
+</body>
+</html>
